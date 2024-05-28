@@ -1,0 +1,29 @@
+@import "variables";
+
+.app-background {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: $cl-light-blue;
+  padding: $spacing__2-5;
+
+  @media (max-width: $screen-md) {
+    padding: $spacing__1-5;
+  }
+
+  @media (max-width: $screen-sm) {
+    padding: $spacing__0-7;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 85rem;
+}
+
+.heading {
+  margin-bottom: $spacing__1-5;
+  align-self: self-start;
+}

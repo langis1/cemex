@@ -1,0 +1,43 @@
+<form [formGroup]="orderFilterForm" class="container">
+  <div class="flex-col">
+    <span class="status-label">Status</span>
+    <div class="flex s">
+      @for (orderStatus of orderStatusValues; track orderStatus) {
+        <mat-checkbox [value]="orderStatus" (change)="onCheckboxChange($event, orderStatus)">{{ orderStatus }}
+        </mat-checkbox>
+      }
+    </div>
+  </div>
+  <mat-form-field class="mat-form-field-width">
+    <mat-label>Product Line</mat-label>
+    <mat-select [formControl]="orderFilterForm.controls.product_line" multiple>
+      <mat-select-trigger>
+        {{ orderFilterForm.controls.product_line.value?.[0] || '' }}
+        @if ((orderFilterForm.controls.product_line.value?.length || 0) > 1) {
+          <span>
+          (+{{ (orderFilterForm.controls.product_line.value?.length || 0) - 1 }} {{ orderFilterForm.controls.product_line.value?.length === 2 ? 'other' : 'others' }}
+            )
+        </span>
+        }
+      </mat-select-trigger>
+      @for (orderProductLine of orderProductLineValues; track orderProductLine) {
+        <mat-option [value]="orderProductLine">{{ orderProductLine }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <label for="input-1" class="date-input">
+    <input type="date" id="input-1" [formControl]="orderFilterForm.controls.date_from">
+    <span class="label">From</span>
+  </label>
+
+  <label for="input-2" class="date-input">
+    <input type="date" id="input-2" [formControl]="orderFilterForm.controls.date_to">
+    <span class="label">To</span>
+  </label>
+
+  <mat-form-field class="mat-form-field-width">
+    <mat-label>Order number</mat-label>
+    <input matInput [formControl]="orderFilterForm.controls.order_number">
+  </mat-form-field>
+</form>

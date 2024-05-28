@@ -1,0 +1,33 @@
+<div class="flex-col">
+  <app-orders-filter (filterResults$)="orderFilter$.next($event)"></app-orders-filter>
+  @if ((filteredOrders$ | async)?.length) {
+    <table>
+      <thead>
+      <tr>
+        <th scope="col">Status</th>
+        <th scope="col">Order number</th>
+        <th scope="col">Product Line</th>
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Date Requested</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (order of filteredOrders$ | async; track order) {
+          <tr class="separate-row">
+            <td data-label="Status" class="border-radius-left">{{ order.status }}</td>
+            <td data-label="Order Number">{{ order.order_number }}</td>
+            <td data-label="Product Line">{{ order.product_line }}</td>
+            <td data-label="Product">{{ order.product }}</td>
+            <td data-label="Quantity">{{ order.quantity }}</td>
+            <td data-label="Date Requested" class="border-radius-right">{{ order.date_requested | date }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <app-info title="Nothing to display"
+              additionalInfo="Please, adjust filters to see more results."></app-info>
+  }
+</div>
+

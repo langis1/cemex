@@ -1,0 +1,29 @@
+@import "variables";
+// Font sizes
+
+@media (min-width: $screen-md) {
+  span {
+    font-size: 14px;
+  }
+
+  table {
+    th, td {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: $screen-md) {
+  span {
+    font-size: 12px;
+  }
+
+  table {
+    th, td {
+      font-size: 12px;
+    }
+  }
+}
+
+
+

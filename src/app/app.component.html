@@ -1,1 +1,16 @@
-<h1>ok</h1>
+<div class="app-background">
+  @if (ordersLoading$ | async) {
+    <mat-spinner diameter="80"></mat-spinner>
+  } @else if (ordersError$ | async) {
+    <app-info title="Please, turn the server On"
+              additionalInfo="npm run start:mock-server"></app-info>
+  } @else {
+    <div class="container">
+      <h1 class="heading">Order History</h1>
+      <div class="w-full">
+        <app-orders-list [orders$]="orders$"></app-orders-list>
+      </div>
+    </div>
+  }
+</div>
+

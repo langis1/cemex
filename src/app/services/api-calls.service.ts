@@ -9,7 +9,7 @@ import { Order } from '../models/orders.models';
 export class ApiCallsService {
   private http = inject(HttpClient);
 
-  public getOrders(): Observable<Order[]> {
+  public listOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(`http://localhost:3000/orders`);
   }
 }

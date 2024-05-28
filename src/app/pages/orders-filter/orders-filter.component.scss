@@ -1,0 +1,66 @@
+@import "variables";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing__1-5;
+  align-items: center;
+  padding: $spacing__1-5;
+  background-color: $cl-white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px -1px, rgba(0, 0, 0, 0.06) 0 2px 4px -1px;
+  border-radius: $border-radius;
+}
+
+.status-label {
+  margin-left: 0.625rem;
+}
+
+.mat-form-field-width {
+  max-width: 14rem;
+}
+
+mat-icon {
+  position: relative;
+  float: right;
+  top: -8px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+// Had to use custom created input for date fields, because of some reason angular material datepicker doesnt set date
+// to input after selecting a date
+
+.date-input {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid $cl-dark-grey;
+  padding-bottom: 1px;
+}
+
+.date-input .label {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  transform-origin: 0 0;
+}
+
+.date-input input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12rem;
+  border: 0;
+  font-family: inherit;
+  padding: 12px 12px 0 12px;
+  height: 43px;
+  outline: none;
+}
+
+.date-input input:not(:placeholder-shown) + .label {
+  transform: translate3d(0, -12px, 0) scale(0.75);
+}
+
+.s {
+  white-space: nowrap
+}

@@ -1,0 +1,84 @@
+@import "variables";
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  text-align: left;
+  color: $cl-black;
+  width: 100%;
+}
+
+td {
+  background-color: $cl-white;
+  padding: $spacing__1-5;
+  text-align: left;
+}
+
+th {
+  padding: $spacing__1-5 $spacing__1-5 0.5rem;
+}
+
+.separate-row {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+//table view on smaller screens
+@media (max-width: $screen-md) {
+  table {
+    border: 0;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid $cl-grey;
+    display: block;
+    margin-bottom: .625rem;
+  }
+
+  table td {
+    border-bottom: 1px solid $cl-grey;
+    display: block;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+//table rows border radius through td
+.border-radius-left {
+  border-bottom-left-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+
+  @media (max-width: $screen-md) {
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+  }
+}
+
+.border-radius-right {
+  border-bottom-right-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+
+  @media (max-width: $screen-md) {
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+  }
+}

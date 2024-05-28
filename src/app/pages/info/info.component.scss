@@ -1,0 +1,16 @@
+@import "variables";
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing__1-5;
+  text-align: center;
+  padding-top: $spacing__5;
+
+  &__icon {
+    transform: scale(3);
+    color: $cl-grey;
+    margin-bottom: $spacing__1-5;
+  }
+}
